@@ -5,12 +5,12 @@ author: "BMB enterprises <info@bmbenterprises.ltd>"
 homepage: https://github.com/bmb-enterprises/scrolling-day-calendar
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
-  intl: ^0.15.8
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
