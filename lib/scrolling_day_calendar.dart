@@ -21,7 +21,7 @@ class ScrollingDayCalendar extends StatefulWidget {
   // what to do then the date changes
   final Function? onDateChange;
   // page widgets to display
-  final Widget pageItems;
+  final Widget? pageItems;
   // date format
   final String? displayDateFormat;
   // date style
@@ -40,10 +40,10 @@ class ScrollingDayCalendar extends StatefulWidget {
   final String? widgetKeyFormat;
 
   ScrollingDayCalendar({
-    required this.pageItems,
     required this.startDate,
     required this.endDate,
     required this.selectedDate,
+    this.pageItems,
     this.onDateChange,
     this.widgets,
     this.noItemsWidget,
@@ -99,9 +99,6 @@ class _ScrollingDayCalendarState extends State<ScrollingDayCalendar> {
   }
 
   Widget? _buildPage(index) {
-    if (widget.pageItems != null) {
-      return widget.pageItems;
-    }
     DateTime dateTime = widget.startDate;
     index = index + 1;
 
@@ -111,7 +108,9 @@ class _ScrollingDayCalendarState extends State<ScrollingDayCalendar> {
     if (widget.widgets != null && widget.widgets!.containsKey(key)) {
       return widget.widgets![key];
     }
-
+    if (widget.pageItems != null) {
+      return widget.pageItems;
+    }
     return widget.noItemsWidget;
   }
 
